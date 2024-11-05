@@ -1,0 +1,3 @@
+ALTER TABLE user
+MODIFY user_id VARCHAR(255) NOT NULL,
+ADD CONSTRAINT unique_user_id UNIQUE (user_id);

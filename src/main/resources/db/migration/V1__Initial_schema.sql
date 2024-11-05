@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS user (
       id BIGINT AUTO_INCREMENT PRIMARY KEY,
-      userId VARCHAR(255) NOT NULL,
+      user_id VARCHAR(255) NOT NULL,
       password VARCHAR(255) NOT NULL,
-      userName VARCHAR(255) NOT NULL,
+      user_name VARCHAR(255) NOT NULL,
       role VARCHAR(50) NOT NULL
 );
