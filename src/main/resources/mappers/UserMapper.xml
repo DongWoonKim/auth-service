@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.spring.authservice.mapper.UserMapper">
 
-    <resultMap id="userResultMap" type="com.example.spring.authservice.model.User">
+    <resultMap id="userResultMap" type="User">
         <result property="id" column="id"/>
         <result property="userId" column="user_id"/>
         <result property="password" column="password"/>
@@ -12,10 +12,21 @@
     </resultMap>
 
     <insert id="saveUser"
-            parameterType="com.example.spring.authservice.model.User"
+            parameterType="User"
             useGeneratedKeys="true"
             keyProperty="id">
         INSERT INTO user (user_id, password, user_name, role)
         VALUES (#{userId}, #{password}, #{userName}, #{role});
     </insert>
+
+    <select id="findUserByUserId"
+            parameterType="String"
+            resultMap="userResultMap"
+    >
+        SELECT
+            id, user_id, password, user_name, role
+        FROM
+            user
+        WHERE user_id = #{userId};
+    </select>
 </mapper>
