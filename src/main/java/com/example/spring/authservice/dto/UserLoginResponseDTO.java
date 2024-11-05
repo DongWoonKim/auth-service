@@ -8,11 +8,10 @@ import lombok.Setter;
 @Setter
 @Builder
 public class UserLoginResponseDTO {
-    private boolean isLoggedIn;
+    private boolean loggedIn;
     private String url;
     private String userName;
     private String userId;
-    private String message;
     private String accessToken;
     private String refreshToken;
 }

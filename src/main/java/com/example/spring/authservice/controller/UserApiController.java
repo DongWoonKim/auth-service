@@ -31,9 +31,7 @@ public class UserApiController {
     @PostMapping("/login")
     public UserLoginResponseDTO login(@RequestBody UserLoginRequestDTO requestDTO) {
         log.info("login");
-        System.out.println("requestDTO: " + requestDTO);
-        UserLoginResponseDTO login = userService.login(requestDTO.getUserId(), requestDTO.getPassword());
-        return login;
+        return userService.login(requestDTO.getUserId(), requestDTO.getPassword());
     }
 
 }

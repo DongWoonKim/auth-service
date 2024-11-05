@@ -26,11 +26,9 @@ public class UserService {
         return userMapper.saveUser(user) == 1 ?
                 UserJoinResponseDTO.builder()
                         .isSuccess(true)
-                        .url("/webs/login")
                         .build() :
                 UserJoinResponseDTO.builder()
                         .isSuccess(false)
-                        .url("/webs/join")
                         .build();
     }
 
@@ -45,11 +43,11 @@ public class UserService {
         String refreshToken = tokenProviderService.generateToken(user, Duration.ofDays(2));
 
         return UserLoginResponseDTO.builder()
-                .isLoggedIn(true)
-                .message("로그인 성공!")
+                .loggedIn(true)
+                .userId(user.getUserId())
+                .userName(user.getUserName())
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
-                .url("/webs/hello")
                 .build();
     }
 
