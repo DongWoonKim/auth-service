@@ -1,6 +1,7 @@
 package com.example.spring.authservice.service;
 
 import com.example.spring.authservice.dto.RefreshTokenResponseDTO;
+import com.example.spring.authservice.dto.ValidTokenResponseDTO;
 import com.example.spring.authservice.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,14 @@ public class TokenService {
                 .status(result)
                 .accessToken(accessToken)
                 .refreshToken(newRefreshToken)
+                .build();
+    }
+
+    public ValidTokenResponseDTO validToken(String refreshToken) {
+        int result = tokenProviderService.validToken(refreshToken);
+        return ValidTokenResponseDTO
+                .builder()
+                .statusNum(result)
                 .build();
     }
 }
