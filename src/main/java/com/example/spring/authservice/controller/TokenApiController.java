@@ -1,9 +1,6 @@
 package com.example.spring.authservice.controller;
 
-import com.example.spring.authservice.dto.RefreshTokenRequestDTO;
-import com.example.spring.authservice.dto.RefreshTokenResponseDTO;
-import com.example.spring.authservice.dto.ValidTokenRequestDTO;
-import com.example.spring.authservice.dto.ValidTokenResponseDTO;
+import com.example.spring.authservice.dto.*;
 import com.example.spring.authservice.service.TokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +23,11 @@ public class TokenApiController {
     @PostMapping("/validToken")
     public ValidTokenResponseDTO validToken(@RequestBody ValidTokenRequestDTO requestDTO) {
         return tokenService.validToken(requestDTO.getRefreshToken());
+    }
+
+    @PostMapping("/authentication")
+    public AuthenticationResponseDTO authentication(@RequestBody AuthenticationRequestDTO requestDTO) {
+        return tokenService.getAuthentication(requestDTO.getToken());
     }
 
 }

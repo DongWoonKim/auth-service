@@ -9,7 +9,6 @@ import lombok.Setter;
 @Builder
 public class UserLoginResponseDTO {
     private boolean loggedIn;
-    private String url;
     private String userName;
     private String userId;
     private String accessToken;

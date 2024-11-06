@@ -1,5 +1,6 @@
 package com.example.spring.authservice.service;
 
+import com.example.spring.authservice.dto.AuthenticationResponseDTO;
 import com.example.spring.authservice.dto.RefreshTokenResponseDTO;
 import com.example.spring.authservice.dto.ValidTokenResponseDTO;
 import com.example.spring.authservice.model.User;
@@ -40,6 +41,12 @@ public class TokenService {
         return ValidTokenResponseDTO
                 .builder()
                 .statusNum(result)
+                .build();
+    }
+
+    public AuthenticationResponseDTO getAuthentication(String token) {
+        return AuthenticationResponseDTO.builder()
+                .authentication(tokenProviderService.getAuthentication(token))
                 .build();
     }
 }
