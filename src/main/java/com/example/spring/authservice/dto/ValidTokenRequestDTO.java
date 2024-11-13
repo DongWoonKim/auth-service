@@ -4,5 +4,5 @@ import lombok.Getter;
 
 @Getter
 public class ValidTokenRequestDTO {
-    private String refreshToken;
+    private String token;
 }
