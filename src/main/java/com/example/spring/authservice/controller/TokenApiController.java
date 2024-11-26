@@ -24,6 +24,7 @@ public class TokenApiController {
 
     @PostMapping("/validToken")
     public ValidTokenResponseDTO validToken(@RequestBody ValidTokenRequestDTO requestDTO) {
+        System.out.println("ValidTokenRequestDTO requestDTO :: " + requestDTO);
         return tokenService.validToken(requestDTO.getToken());
     }
 
